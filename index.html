@@ -9,10 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #888888;
-      --border: #e0e0e0;
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #b9b9b9;
+      --border: #54545400;
+      --different1: #95eef8;
+      --different2: #fbfea4;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +33,7 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: #111111;
+      background: linear-gradient(90deg, #202020 0%, #4a4a4a 50%, #202020 100%);
       z-index: 100;
     }
 
@@ -46,13 +48,13 @@
       font-size: 1.4rem;
       font-weight: 400;
       letter-spacing: 0.02em;
-      color: #ffffff;
+      color: var(--different2);
     }
 
     .site-tagline {
       font-family: 'Lexend Deca', sans-serif;
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.55);
+      color: var(--different2);
       margin-top: 0.2rem;
       margin-bottom: 1.4rem;
       letter-spacing: 0.04em;
@@ -118,7 +120,7 @@
     }
 
     .bio p {
-      font-size: 0.92rem;
+      font-size: 0.86rem;
       line-height: 1.78;
       color: var(--fg);
       margin-bottom: 0.85rem;
@@ -160,7 +162,7 @@
     }
 
     .research-area-card {
-      background: var(--bg);
+      background: #161616;
       padding: 1.2rem 1.1rem;
       cursor: pointer;
       transition: background 0.15s;
@@ -169,7 +171,10 @@
       gap: 0.4rem;
     }
 
-    .research-area-card:hover { background: #f7f7f7; }
+    .research-area-card:hover { background: #9c9c9c; color: #000000; }
+    .research-area-card:hover h4 { color: #000000; }
+    .research-area-card:hover p { color: #000000; }
+    .research-area-card:hover .area-arrow { color: #000000; }
 
     .research-area-card h4 {
       font-size: 0.82rem;
@@ -452,11 +457,11 @@
   <header>
     <div class="header-inner">
       <h1 class="site-name">Deepayan Banik</h1>
-      <p class="site-tagline">PhD Candidate · Physics · University of Toronto</p>
+      <p class="site-tagline">PhD Candidate · Earth Atmospheric and Planetary Physics · University of Toronto</p>
       <nav>
         <button class="tab-btn active" data-tab="home">Home</button>
         <button class="tab-btn" data-tab="research">Research</button>
-        <button class="tab-btn" data-tab="contact">Contact</button>
+        <!-- <button class="tab-btn" data-tab="contact">Contact</button> -->
       </nav>
     </div>
   </header>
@@ -466,29 +471,68 @@
     <!-- ══ HOME ══ -->
     <section id="home" class="tab-content active">
       <div class="card">
-        <img src="squareDB.jpg" alt="Profile photo of Deepayan Banik" class="avatar" />
-        <div class="bio">
-          <p class="bio-label">About</p>
-          <p>
-            I am a 5th year PhD candidate in Physics at the University of Toronto.
-            My main interest is geophysical and astrophysical fluid dynamics — I study
-            planetary to stellar scale flows using primarily theoretical and computational,
-            and occasionally observational tools through collaborations. 
-          </p>
-          <p>
-            Navigating through engineering and physics educational backgrounds,
-            interdisciplinarity lies at the core of my research. In general, I am interested
-            in mathematical modeling of physical phenomena.
-          </p>
-          <p>
-            Outside of research I love biking and running, cooking,
-            playing different musical instruments, and human psychology.
-          </p>
-          <div class="callout">
-            Please feel free to reach out to me about research and science. 
-            I am also currently looking for post-doc opportunities.
-          </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <img src="squareDB.jpeg" alt="Profile photo of Deepayan Banik" class="avatar" />
+        <div style="display: flex; flex-direction: column; gap: 0.55rem; width: 100%;">
+        <a href="https://www.physics.utoronto.ca" target="_blank" title="McLennan Physical Laboratories, University of Toronto"
+          style="display: flex; align-items: flex-start; gap: 0.5rem; color: var(--different1); text-decoration: none; font-size: 0.73rem; line-height: 1.4; transition: color 0.15s;"
+          onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--different1)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:1px"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>McLennan Physical Laboratories</span>
+        </a>
+        <a href="mailto:deepayan.banik@mail.utoronto.ca" title="Email"
+          style="display: flex; align-items: center; gap: 0.5rem; color: var(--different1); text-decoration: none; font-size: 0.73rem; transition: color 0.15s;"
+          onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--different1)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Email</span>
+        </a>
+        <a href="https://www.linkedin.com/in/textydeep" target="_blank" title="LinkedIn"
+          style="display: flex; align-items: center; gap: 0.5rem; color: var(--different1); text-decoration: none; font-size: 0.73rem; transition: color 0.15s;"
+          onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--different1)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" title="Google Scholar"
+          style="display: flex; align-items: center; gap: 0.5rem; color: var(--different1); text-decoration: none; font-size: 0.73rem; transition: color 0.15s;"
+          onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--different1)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>
+          <span>Google Scholar</span>
+        </a>
+        <a href="https://github.com/Textydeep" target="_blank" title="GitHub"
+          style="display: flex; align-items: center; gap: 0.5rem; color: var(--different1); text-decoration: none; font-size: 0.73rem; transition: color 0.15s;"
+          onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--different1)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="CV_DB.pdf" target="_blank" title="Curriculum Vitae"
+          style="display: flex; align-items: center; gap: 0.5rem; color: #f68f8f; text-decoration: none; font-size: 0.73rem; transition: color 0.15s;"
+          onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#f68f8f'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>CV</span>
+        </a>
         </div>
+      </div>
+      <div class="bio">
+        <!-- <p class="bio-label">About</p> -->
+        <p>
+        I am a 5th year PhD candidate in the Department of Physics working across the Earth 
+        Atmospheric and Planetary Physics Group and the Astronomy and Astrophysics Department at the University of Toronto.
+        </p>
+        <p>
+        My main interest is geophysical and astrophysical fluid dynamics — I study
+        planetary to stellar scale flows using primarily theoretical and computational,
+        and occasionally observational tools through collaborations. Previously, I have 
+        also worked on granular flows on asteroids and am trained in Aerospace Engineering.
+        </p>
+        <p>
+        Outside of research I love biking and running, cooking,
+        playing different musical instruments, and human psychology.
+        </p>
+        <div class="callout">
+        I am currently looking for post-doc opportunities in astrophysical/geophysical fluid dynamics, planetary science, and related fields.
+        Please feel free to reach out to me about research and science. 
+        </div>
+      </div>
       </div>
     </section>
 
@@ -501,109 +545,99 @@
         <p class="section-label" style="margin-top:0">Research Areas</p>
         <div class="research-areas">
           <div class="research-area-card" onclick="openDetail('stars')">
-            <h4>Stars</h4>
-            <p>Differential rotation and meridional circulation in stellar interiors are often neglected in evolutionary models that treat stars as rigidly-rotating one dimensional objects. However, in reality they highly three dimensional with complex fluid motion that not only affect the current state of stars but also their past and future. I work on this using theoretical and computational fluid dynamics.</p>
-            <span class="area-arrow">View details →</span>
+        <img src="stars.jpeg" alt="Stars research area" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 0.8rem; border-radius: 2px;" />
+        <h4>Stars</h4>
+        <p>Differential rotation and meridional circulation in stellar interiors are often neglected in evolutionary models that treat stars as rigidly-rotating one dimensional objects. However, in reality they highly three dimensional with complex fluid motion that not only affect the current state of stars but also their past and future. I work on this using theoretical and computational fluid dynamics.</p>
+        <span class="area-arrow">View details →</span>
           </div>
           <div class="research-area-card" onclick="openDetail('planets')">
-            <h4>Planets</h4>
-            <p>Exoplanetary climate physics is focused on using a variety of tools. I use shallow water models of planetary atmospheres to study variably irradiated synchronous and asynchronous planets.  I also collaborate on using high resolution phase resolved spectroscopy to probe ultra hot Jupiters for magnetic fields.</p>
-            <span class="area-arrow">View details →</span>
+        <img src="planets.jpeg" alt="Planets research area" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 0.8rem; border-radius: 2px;" />
+        <h4>Planets</h4>
+        <p>Exoplanetary climate physics is focused on using a variety of tools. I use shallow water models of planetary atmospheres to study variably irradiated synchronous and asynchronous planets.  I also collaborate on using high resolution phase resolved spectroscopy to probe ultra hot Jupiters for magnetic fields.</p>
+        <span class="area-arrow">View details →</span>
           </div>
           <div class="research-area-card" onclick="openDetail('asteroids')">
-            <h4>Asteroids</h4>
-            <p>In the past, I have studied the spin and shape evolution of rubble-pile asteroids using discrete and continuum methods for granular flows with focus on top-shaped asteroids like Bennu and Ryugu. Current collaborative work extends into developing a comprehensive asteroid evolution history package for population statistics.</p>
-            <span class="area-arrow">View details →</span>
+        <img src="asteroids.jpeg" alt="Asteroids research area" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 0.8rem; border-radius: 2px;" />
+        <h4>Asteroids</h4>
+        <p>In the past, I have studied the spin and shape evolution of rubble-pile asteroids using discrete and continuum methods for granular flows with focus on top-shaped asteroids like Bennu and Ryugu. Current collaborative work extends into developing a comprehensive asteroid evolution history package for population statistics.</p>
+        <span class="area-arrow">View details →</span>
           </div>
           <div class="research-area-card" onclick="openDetail('misc')">
-            <h4>Miscellaneous</h4>
-            <p>Some of my old work dealt with the theoretical design of mechanical logic gates like the OR gate, using compliant bistable arches and their macroscale prototyping as a proof of concept for eventual miniaturization. I have also worked on designing tests for LLM evaluation in the field of physics.</p>
-            <span class="area-arrow">View details →</span>
+        <img src="Miscellaneous.jpeg" alt="Miscellaneous research area" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 0.8rem; border-radius: 2px;" />
+        <h4>Miscellaneous</h4>
+        <p>Some of my old work dealt with the theoretical design of mechanical logic gates like the OR gate, using compliant bistable arches and their macroscale prototyping as a proof of concept for eventual miniaturization. I have also worked on designing tests for LLM evaluation in the field of physics.</p>
+        <span class="area-arrow">View details →</span>
           </div>
         </div>
 
-        <!-- <p class="section-label">Keywords</p>
-        <div class="tags-strip">
-          <span>fluid mechanics</span>
-          <span>turbulence</span>
-          <span>magnetic fields</span>
-          <span>mixing</span>
-          <span>convection</span>
-          <span>stratification</span>
-          <span>shallow water</span>
-          <span>general circulation</span>
-          <span>primitive equations</span>
-          <span>wave–mean-flow interactions</span>
-        </div> -->
-
-        <p class="section-label">Projects</p>
+        <!-- <p class="section-label">Projects</p>
         <div class="project-group">
           <div class="project-group-label">Current</div>
           <ul class="project-list">
-            <li>Wave driven Hot-Jupiter variability</li>
-            <li>Atmospheric circulation of variably irradiated synchronous and asynchronous planets</li>
-            <li>Exoplanet magnetic fields using high-resolution phase-resolved cross-correlation spectroscopy</li>
+        <li>Wave driven Hot-Jupiter variability</li>
+        <li>Atmospheric circulation of variably irradiated synchronous and asynchronous planets</li>
+        <li>Exoplanet magnetic fields using high-resolution phase-resolved cross-correlation spectroscopy</li>
           </ul>
         </div>
         <div class="project-group">
           <div class="project-group-label">Recent</div>
           <ul class="project-list">
-            <li>Beating climates of variably irradiated asynchronous exoplanets</li>
-            <li>Rotational mixing in stellar and planetary interiors</li>
-            <li>Meridional circulation in stratified environments</li>
+        <li>Beating climates of variably irradiated asynchronous exoplanets</li>
+        <li>Rotational mixing in stellar and planetary interiors</li>
+        <li>Meridional circulation in stratified environments</li>
           </ul>
         </div>
         <div class="project-group">
           <div class="project-group-label">Past</div>
           <ul class="project-list">
-            <li>Spin and shape evolution of rubble-piles</li>
-            <li>Continuum regolith flows on top-shaped asteroids</li>
-            <li>Discrete granular flow on a rotating and gravitating ellipse</li>
-            <li>Mechanical logic gates</li>
+        <li>Spin and shape evolution of rubble-piles</li>
+        <li>Continuum regolith flows on top-shaped asteroids</li>
+        <li>Discrete granular flow on a rotating and gravitating ellipse</li>
+        <li>Mechanical logic gates</li>
           </ul>
-        </div>
+        </div> -->
 
         <p class="section-label">Publications</p>
         <ol class="pub-list">
           <li>
-            <span class="pub-title">Meridional Circulation Molecular-Weighted</span>
-            <span class="pub-authors">D Banik, K Menou, E H Anders</span>
-            <span class="pub-venue">The Astrophysical Journal · 2025</span>
+        <span class="pub-title"><a href="https://iopscience.iop.org/article/10.3847/1538-4357/adf851" target="_blank">Meridional Circulation Molecular-Weighted</a></span>
+        <span class="pub-authors">D Banik, K Menou, E H Anders</span>
+        <span class="pub-venue">The Astrophysical Journal · 2025 </span>
           </li>
           <li>
-            <span class="pub-title">Planetary Rhythms: Synchronous Circulation on Variably Irradiated Asynchronous Planets</span>
-            <span class="pub-authors">D Banik (solo author)</span>
-            <span class="pub-venue">The Astrophysical Journal · 2025</span>
+        <span class="pub-title"><a href="https://iopscience.iop.org/article/10.3847/1538-4357/adabc4/meta" target="_blank">Planetary Rhythms: Synchronous Circulation on Variably Irradiated Asynchronous Planets</a></span>
+        <span class="pub-authors">D Banik (solo author)</span>
+        <span class="pub-venue">The Astrophysical Journal · 2025 </span>
           </li>
           <li>
-            <span class="pub-title">Meridional Circulation Streamlined</span>
-            <span class="pub-authors">D Banik, K Menou</span>
-            <span class="pub-venue">Geophysical and Astrophysical Fluid Dynamics · 2024</span>
+        <span class="pub-title"><a href="https://www.tandfonline.com/doi/abs/10.1080/03091929.2024.2361013" target="_blank">Meridional Circulation Streamlined</a></span>
+        <span class="pub-authors">D Banik, K Menou</span>
+        <span class="pub-venue">Geophysical and Astrophysical Fluid Dynamics · 2024 </span>
           </li>
           <li>
-            <span class="pub-title">Regolith Flow on Top-Shaped Asteroids</span>
-            <span class="pub-authors">D Banik, K Gaurav, I Sharma</span>
-            <span class="pub-venue">Proceedings of the Royal Society A · 2022</span>
+        <span class="pub-title"><a href="https://royalsocietypublishing.org/rspa/article/478/2262/20210972/54554/Regolith-flow-on-top-shaped-asteroidsRegolith-flows" target="_blank">Regolith Flow on Top-Shaped Asteroids</a></span>
+        <span class="pub-authors">D Banik, K Gaurav, I Sharma</span>
+        <span class="pub-venue">Proceedings of the Royal Society A · 2022 </span>
           </li>
           <li>
-            <span class="pub-title">Spin Change of Rubble-Piles Due to Mass Shedding Culminating from Surface Motion</span>
-            <span class="pub-authors">D Banik, K Gaurav</span>
-            <span class="pub-venue">Lunar and Planetary Science Conference · 2021</span>
+        <span class="pub-title"><a href="https://www.hou.usra.edu/meetings/lpsc2021/pdf/1122.pdf" target="_blank">Spin Change of Rubble-Piles Due to Mass Shedding Culminating from Surface Motion</a></span>
+        <span class="pub-authors">D Banik, K Gaurav</span>
+        <span class="pub-venue">Lunar and Planetary Science Conference · 2021 </span>
           </li>
           <li>
-            <span class="pub-title">Granular Flow on a Rotating and Gravitating Elliptical Body</span>
-            <span class="pub-authors">K Gaurav, D Banik, I Sharma</span>
-            <span class="pub-venue">Journal of Fluid Mechanics · 2021</span>
+        <span class="pub-title"><a href="https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/granular-flow-on-a-rotating-and-gravitating-elliptical-body/19108E94A193C71795AC7CCA4B092FFD" target="_blank">Granular Flow on a Rotating and Gravitating Elliptical Body</a></span>
+        <span class="pub-authors">K Gaurav, D Banik, I Sharma</span>
+        <span class="pub-venue">Journal of Fluid Mechanics · 2021 </span>
           </li>
           <li>
-            <span class="pub-title">A Mechanical OR Gate Using Pinned-Pinned Bistable Arches</span>
-            <span class="pub-authors">D Banik, S Palathingal, G Ananthasuresh, A Ghosh</span>
-            <span class="pub-venue">Mechanism and Machine Science · 2020</span>
+        <span class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-981-15-4477-4_61" target="_blank">A Mechanical OR Gate Using Pinned-Pinned Bistable Arches</a></span>
+        <span class="pub-authors">D Banik, S Palathingal, G Ananthasuresh, A Ghosh</span>
+        <span class="pub-venue">Mechanism and Machine Science · 2020 </span>
           </li>
           <li>
-            <span class="pub-title">Humanities Last Exam</span>
-            <span class="pub-authors">Several authors including D Banik</span>
-            <span class="pub-venue">arXiv · 2025</span>
+        <span class="pub-title"><a href="https://www.nature.com/articles/s41586-025-09962-4" target="_blank">A benchmark of expert-level academic questions to assess AI capabilities (Humanities Last Exam)</a></span>
+        <span class="pub-authors">Several authors including D Banik</span>
+        <span class="pub-venue">Nature · 2025 </span>
           </li>
         </ol>
       </div>
@@ -777,7 +811,7 @@
         </tbody>
       </table>
 
-      <!-- <form class="contact-form" id="contact-form" novalidate>
+      <form class="contact-form" id="contact-form" novalidate>
         <h3>Send a Message</h3>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Your name"
@@ -796,13 +830,13 @@
 
         <button type="submit" class="submit-btn">Send</button>
         <p id="form-status" aria-live="polite"></p>
-      </form> -->
+      </form>
     </section>
 
   </main>
 
   <footer>
-    <p>&copy; 2025 Deepayan Banik · University of Toronto · Physics</p>
+    <p>&copy; 2025 Deepayan Banik · University of Toronto </p>
   </footer>
 
   <script>
