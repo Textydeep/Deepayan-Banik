@@ -14,9 +14,9 @@
       --bg: #000000;
       --fg: #d0d0d0;
       --muted: #858585;
-      --border: #54545400;
-      --different1: #95eef8;
-      --different2: #fbfea4;
+      --border: #1e293b;
+      --different1: #7bafc7;
+      --different2: #e2e8f0;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,37 +32,44 @@
 
     /* ── HEADER ── */
     header {
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #1e293b;
       position: sticky;
       top: 0;
-      background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+      background: #0f172a;
       z-index: 100;
     }
 
     .header-inner {
       max-width: 760px;
       margin: 0 auto;
-      padding: 2rem 2rem 0;
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
     }
+
+    .header-left { flex: 1; min-width: 0; }
 
     .site-name {
       font-family: 'Lexend Deca', sans-serif;
-      font-size: 2.0rem;
+      font-size: 1.05rem;
       font-weight: 400;
       letter-spacing: 0.02em;
-      color: var(--different2);
+      color: #f1f5f9;
     }
 
     .site-tagline {
       font-family: 'Lexend Deca', sans-serif;
-      font-size: 0.78rem;
-      color: var(--different2);
-      margin-top: 0.2rem;
-      margin-bottom: 1.4rem;
-      letter-spacing: 0.04em;
+      font-size: 0.68rem;
+      color: #64748b;
+      margin-top: 0.18rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    nav { display: flex; gap: 2rem; }
+    nav { display: flex; gap: 2rem; flex-shrink: 0; }
 
     .tab-btn {
       font-family: 'Lexend Deca', sans-serif;
@@ -71,15 +78,14 @@
       background: none;
       border: none;
       border-bottom: 1px solid transparent;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255, 255, 255, 0.4);
       padding: 0.4rem 0;
       cursor: pointer;
       transition: color 0.15s, border-color 0.15s;
-      margin-bottom: -1px;
     }
 
-    .tab-btn:hover { color: #ffffff; }
-    .tab-btn.active { color: #ffffff; border-bottom-color: #ffffff; }
+    .tab-btn:hover { color: #f1f5f9; }
+    .tab-btn.active { color: #f1f5f9; border-bottom-color: #94a3b8; }
 
     /* ── MAIN ── */
     main {
@@ -171,10 +177,10 @@
       gap: 0.4rem;
     }
 
-    .research-area-card:hover { background: #9c9c9c; color: #000000; }
-    .research-area-card:hover h4 { color: #000000; }
-    .research-area-card:hover p { color: #000000; }
-    .research-area-card:hover .area-arrow { color: #000000; }
+    .research-area-card:hover { background: #1e2a3a; }
+    .research-area-card:hover h4 { color: #f1f5f9; }
+    .research-area-card:hover p { color: #94a3b8; }
+    .research-area-card:hover .area-arrow { color: var(--different1); }
 
     .research-area-card h4 {
       font-size: 0.82rem;
@@ -197,7 +203,7 @@
 
     /* ── PUBLICATIONS ── */
     a {
-      color: rgb(113, 170, 113);
+      color: var(--different1);
       text-decoration: none;
     }
 
@@ -423,106 +429,97 @@
 
     /* ── JOURNEY ── */
     .journey-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      display: flex;
+      flex-direction: column;
       padding-bottom: 5rem;
     }
 
     .journey-item {
       border: 1px solid var(--border);
-      background: #161616;
-      padding: 1.2rem;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      overflow: visible;
-      display: flex;
-      flex-direction: column;
+      border-bottom: none;
+      background: #0d1117;
+      overflow: hidden;
+      transition: background 0.15s;
     }
 
-    .journey-item:hover {
-      background: #1f1f1f;
-      border-color: var(--different1);
-      box-shadow: 0 4px 12px rgba(149, 238, 248, 0.1);
-    }
+    .journey-item:last-child { border-bottom: 1px solid var(--border); }
+    .journey-item.active { background: #111827; }
 
     .journey-header {
       display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
     }
+
+    .journey-header:hover { background: #111827; }
+
+    .journey-header::after {
+      content: '+';
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      font-family: monospace;
+      line-height: 1;
+    }
+
+    .journey-item.active .journey-header::after { content: '−'; }
 
     .journey-year {
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
       color: var(--different1);
       font-weight: 500;
+      flex-shrink: 0;
+      min-width: 7.5rem;
     }
 
-    .journey-title { flex: 1; }
+    .journey-title { flex: 1; min-width: 0; }
 
     .journey-degree {
       font-size: 0.86rem;
       font-weight: 400;
       letter-spacing: 0.02em;
       color: var(--fg);
-      margin-bottom: 0.2rem;
     }
 
     .journey-inst {
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--muted);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
+      margin-top: 0.1rem;
     }
 
-    .journey-details { display: none; }
-
-    .journey-expanded-details {
-      grid-column: 1 / -1;
-      border: 1px solid var(--border);
-      background: #161616;
-      padding: 1.2rem;
-      border-radius: 2px;
+    .journey-details {
+      display: block;
       max-height: 0;
-      opacity: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-      margin-top: 0;
+      padding: 0 1.4rem;
+      border-top: 1px solid transparent;
+      transition: max-height 0.4s ease, padding-bottom 0.4s ease, border-color 0.2s ease;
     }
 
-    .journey-expanded-details.active {
-      max-height: 600px;
-      opacity: 1;
-    }
-
-    .journey-expanded-details p {
-      font-size: 0.76rem;
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .journey-expanded-details p:last-child { margin-bottom: 0; }
-
-    .journey-label {
-      color: var(--fg);
-      font-weight: 500;
-      margin-right: 0.5rem;
+    .journey-item.active .journey-details {
+      max-height: 1400px;
+      padding-bottom: 1.4rem;
+      border-top-color: var(--border);
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .journey-container { grid-template-columns: repeat(2, 1fr); }
-    }
-
     @media (max-width: 560px) {
       .card { grid-template-columns: 1fr; }
       .avatar { width: 80px; height: 80px; }
       main { padding: 2.5rem 1.2rem 4rem; }
-      .header-inner { padding: 1.5rem 1.2rem 0; }
-      .journey-container { grid-template-columns: 1fr; }
-      .journey-item { padding: 1rem; }
+      .header-inner { padding: 0.75rem 1.2rem; flex-wrap: wrap; }
+      .site-tagline { white-space: normal; }
+      .journey-header { gap: 0.9rem; }
+      .journey-year { min-width: 0; }
+      .jd-columns { grid-template-columns: 1fr; }
+      .jd-projects-grid { grid-template-columns: 1fr; }
     }
 
     /* ── JOURNEY DETAIL PANEL ── */
@@ -531,9 +528,10 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 1rem;
+      margin-top: 1.1rem;
       margin-bottom: 0.7rem;
       padding-bottom: 0.6rem;
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid var(--border);
     }
 
     .jd-position {
@@ -553,7 +551,7 @@
 
     .jd-lab {
       font-size: 0.69rem;
-      color: #555;
+      color: #6b7280;
       letter-spacing: 0.02em;
       margin-bottom: 0.9rem;
     }
@@ -569,7 +567,7 @@
       font-size: 0.57rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #484848;
+      color: #64748b;
       margin-bottom: 0.3rem;
     }
 
@@ -585,7 +583,7 @@
 
     .jd-projects {
       padding-top: 0.75rem;
-      border-top: 1px solid #1c1c1c;
+      border-top: 1px solid var(--border);
       margin-bottom: 0.75rem;
     }
 
@@ -593,7 +591,7 @@
       font-size: 0.57rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #484848;
+      color: #64748b;
       margin-bottom: 0.4rem;
     }
 
@@ -612,15 +610,15 @@
       gap: 0.45rem;
     }
 
-    .jd-project-item::before { content: '—'; color: #333; flex-shrink: 0; font-size: 0.62rem; }
+    .jd-project-item::before { content: '—'; color: #475569; flex-shrink: 0; font-size: 0.62rem; }
     .jd-project-name { flex: 1; }
-    .jd-project-date { font-size: 0.62rem; color: #3d3d3d; white-space: nowrap; }
+    .jd-project-date { font-size: 0.62rem; color: #64748b; white-space: nowrap; }
 
     .jd-stats {
       display: flex;
       gap: 1.5rem;
       padding-top: 0.7rem;
-      border-top: 1px solid #1c1c1c;
+      border-top: 1px solid var(--border);
       flex-wrap: wrap;
     }
 
@@ -645,10 +643,12 @@
 
   <header>
     <div class="header-inner">
-      <h1 class="site-name">Deepayan Banik</h1>
-        <p class="site-tagline">Final year PhD Candidate <br> Earth Atmospheric and Planetary Physics · Astronomy & Astrophysics <br> University of Toronto</p>
-      <nav style="justify-content: flex-end;">
-        <button id="header-back-btn" class="back-btn" onclick="closeDetail()" style="display:none; margin-right: auto;">← Research</button>
+      <div class="header-left">
+        <h1 class="site-name">Deepayan Banik</h1>
+        <p class="site-tagline">PhD Candidate · Atmospheric &amp; Planetary Physics · University of Toronto</p>
+      </div>
+      <nav>
+        <button id="header-back-btn" class="back-btn" onclick="closeDetail()" style="display:none;">← Research</button>
         <button class="tab-btn active" data-tab="home">Home</button>
         <button class="tab-btn" data-tab="research">Research</button>
         <button class="tab-btn" data-tab="journey">Journey</button>
@@ -696,25 +696,17 @@
       document.getElementById('header-back-btn').style.display = 'none';
     }
 
-    // ── Journey hover behavior (called after journey section loads) ──
+    // ── Journey click accordion (called after journey section loads) ──
     function initJourney() {
       document.querySelectorAll('.journey-item').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          const details = item.querySelector('.journey-details');
-          const expandedContainer = item.closest('.journey-container').querySelector('.journey-expanded-details');
-          if (details && expandedContainer) {
-            expandedContainer.innerHTML = details.innerHTML;
-            expandedContainer.classList.add('active');
-          }
+        const header = item.querySelector('.journey-header');
+        if (!header) return;
+        header.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          document.querySelectorAll('.journey-item').forEach(i => i.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
         });
       });
-      const container = document.querySelector('.journey-container');
-      if (container) {
-        container.addEventListener('mouseleave', () => {
-          const expandedContainer = document.querySelector('.journey-expanded-details');
-          if (expandedContainer) expandedContainer.classList.remove('active');
-        });
-      }
     }
 
     // ── Contact form validation (called after contact section loads) ──
