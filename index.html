@@ -26,7 +26,7 @@
       background: var(--bg);
       color: var(--fg);
       min-height: 100vh;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.6;
     }
 
@@ -69,7 +69,7 @@
       text-overflow: ellipsis;
     }
 
-    nav { display: flex; gap: 2rem; flex-shrink: 0; }
+    nav { display: flex; gap: 2rem; flex-shrink: 0; align-items: center; }
 
     .tab-btn {
       font-family: 'Lexend Deca', sans-serif;
@@ -91,15 +91,36 @@
     main {
       max-width: 760px;
       margin: 0 auto;
-      padding: 3.5rem 2rem 5rem;
+      padding: 0 2rem;
     }
 
-    .tab-content { display: none; animation: fadeIn 0.2s ease; }
-    .tab-content.active { display: block; }
+    /* ── SECTIONS (scrollable) ── */
+    .tab-content {
+      display: block;
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+      scroll-margin-top: 80px;
+    }
+
+    .tab-content + .tab-content {
+      border-top: 1px solid var(--border);
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(5px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ── HOME ── */
@@ -117,6 +138,7 @@
       object-fit: cover;
       border: 1px solid var(--border);
       display: block;
+      box-shadow: 0 0 0 3px #0a0a0a, 0 0 0 4px var(--border), 0 4px 28px rgba(123, 175, 199, 0.1);
     }
 
     .bio-label {
@@ -150,8 +172,10 @@
       font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--different1);
       margin: 2.5rem 0 1rem;
+      padding-left: 0.7rem;
+      border-left: 2px solid var(--different1);
     }
 
     /* ── RESEARCH AREAS ── */
@@ -171,13 +195,13 @@
       background: #161616;
       padding: 1.2rem 1.1rem;
       cursor: pointer;
-      transition: background 0.15s;
+      transition: background 0.15s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
     }
 
-    .research-area-card:hover { background: #1e2a3a; }
+    .research-area-card:hover { background: #1e2a3a; box-shadow: inset 0 2px 0 var(--different1); }
     .research-area-card:hover h4 { color: #f1f5f9; }
     .research-area-card:hover p { color: #94a3b8; }
     .research-area-card:hover .area-arrow { color: var(--different1); }
@@ -199,6 +223,7 @@
       color: var(--muted);
       margin-top: auto;
       padding-top: 0.6rem;
+      transition: color 0.15s;
     }
 
     /* ── PUBLICATIONS ── */
@@ -212,9 +237,16 @@
     .pub-list li {
       padding: 1rem 0;
       border-bottom: 1px solid var(--border);
+      transition: padding-left 0.2s;
     }
 
     .pub-list li:first-child { border-top: 1px solid var(--border); }
+
+    .pub-list li:hover {
+      padding-left: 0.5rem;
+      border-left: 2px solid var(--different1);
+      margin-left: -2px;
+    }
 
     .pub-title {
       display: block;
@@ -236,13 +268,62 @@
       color: var(--muted);
     }
 
-    /* ── DETAIL PAGE ── */
-    .detail-page {
-      display: none;
-      animation: fadeIn 0.2s ease;
+    /* ── DETAIL PAGE (inline within research section) ── */
+    .detail-page { display: none; }
+
+    .detail-page.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
     }
 
-    .detail-page.active { display: block; }
+    .detail-inner { padding: 0; }
+
+    .research-return-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--different1);
+      background: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      padding: 0.55rem 1rem;
+      transition: color 0.15s, border-color 0.2s;
+      margin-bottom: 1.8rem;
+    }
+
+    .research-return-btn:hover { color: var(--fg); border-color: var(--different1); }
+    .research-return-btn.bottom { margin-bottom: 0; margin-top: 2.5rem; }
+
+    /* ── JOURNEY ART ── */
+    .journey-art {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .journey-art-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .journey-art-panels img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .journey-art-caption {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-style: italic;
+      text-align: center;
+    }
 
     .back-btn {
       display: inline-flex;
@@ -279,8 +360,10 @@
       font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--different1);
       margin: 2rem 0 0.8rem;
+      padding-left: 0.6rem;
+      border-left: 2px solid var(--different1);
     }
 
     .detail-body {
@@ -431,7 +514,6 @@
     .journey-container {
       display: flex;
       flex-direction: column;
-      padding-bottom: 5rem;
     }
 
     .journey-item {
@@ -439,11 +521,15 @@
       border-bottom: none;
       background: #0d1117;
       overflow: hidden;
-      transition: background 0.15s;
+      transition: background 0.15s, border-left-color 0.2s;
     }
 
     .journey-item:last-child { border-bottom: 1px solid var(--border); }
-    .journey-item.active { background: #111827; }
+
+    .journey-item.active {
+      background: #111827;
+      border-left-color: var(--different1);
+    }
 
     .journey-header {
       display: flex;
@@ -467,7 +553,7 @@
       line-height: 1;
     }
 
-    .journey-item.active .journey-header::after { content: '−'; }
+    .journey-item.active .journey-header::after { content: '−'; color: var(--different1); }
 
     .journey-year {
       font-size: 0.72rem;
@@ -500,7 +586,7 @@
       overflow: hidden;
       padding: 0 1.4rem;
       border-top: 1px solid transparent;
-      transition: max-height 0.4s ease, padding-bottom 0.4s ease, border-color 0.2s ease;
+      transition: max-height 0.45s ease, padding-bottom 0.4s ease, border-color 0.2s ease;
     }
 
     .journey-item.active .journey-details {
@@ -513,13 +599,27 @@
     @media (max-width: 560px) {
       .card { grid-template-columns: 1fr; }
       .avatar { width: 80px; height: 80px; }
-      main { padding: 2.5rem 1.2rem 4rem; }
+      main { padding: 0 1.2rem; }
       .header-inner { padding: 0.75rem 1.2rem; flex-wrap: wrap; }
       .site-tagline { white-space: normal; }
       .journey-header { gap: 0.9rem; }
       .journey-year { min-width: 0; }
       .jd-columns { grid-template-columns: 1fr; }
       .jd-projects-grid { grid-template-columns: 1fr; }
+
+      .bio p { font-size: 0.94rem; }
+      .pub-title { font-size: 0.94rem; }
+      .pub-authors { font-size: 0.82rem; }
+      .pub-venue { font-size: 0.80rem; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-body { font-size: 0.95rem; }
+      .journey-degree { font-size: 0.94rem; }
+      .journey-inst { font-size: 0.80rem; }
+      .jd-position { font-size: 0.82rem; }
+      .jd-col-label, .jd-projects-label, .jd-stat-tag { font-size: 0.68rem; }
+      .jd-col-value { font-size: 0.78rem; }
+      .research-area-card h4 { font-size: 0.88rem; }
+      .research-area-card p { font-size: 0.84rem; }
     }
 
     /* ── JOURNEY DETAIL PANEL ── */
@@ -564,7 +664,7 @@
     }
 
     .jd-col-label {
-      font-size: 0.57rem;
+      font-size: 0.63rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #64748b;
@@ -588,7 +688,7 @@
     }
 
     .jd-projects-label {
-      font-size: 0.57rem;
+      font-size: 0.63rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #64748b;
@@ -632,11 +732,77 @@
     }
 
     .jd-stat-tag {
-      font-size: 0.57rem;
+      font-size: 0.63rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
     }
+
+    /* ── BLOG ── */
+    .blog-link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid var(--border);
+      background: #161616;
+      text-decoration: none;
+      color: var(--fg);
+      transition: background 0.15s, box-shadow 0.2s;
+    }
+
+    .blog-link-card:hover {
+      background: #1e2a3a;
+      box-shadow: inset 0 2px 0 var(--different1);
+      color: #f1f5f9;
+    }
+
+    .blog-card-title {
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .blog-card-sub {
+      font-size: 0.74rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .blog-link-card:hover .blog-card-sub { color: #94a3b8; }
+
+    .blog-card-arrow {
+      font-size: 1.3rem;
+      color: var(--different1);
+      flex-shrink: 0;
+      margin-left: 1rem;
+      line-height: 1;
+    }
+
+    /* ── BACK TO TOP ── */
+    .back-to-top-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 2rem 2.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .back-to-top-btn {
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.55rem 1.6rem;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.2s;
+    }
+
+    .back-to-top-btn:hover { color: var(--fg); border-color: var(--different1); }
   </style>
 </head>
 <body>
@@ -648,7 +814,6 @@
         <p class="site-tagline">PhD Candidate · Atmospheric &amp; Planetary Physics · University of Toronto</p>
       </div>
       <nav>
-        <button id="header-back-btn" class="back-btn" onclick="closeDetail()" style="display:none;">← Research</button>
         <button class="tab-btn active" data-tab="home">Home</button>
         <button class="tab-btn" data-tab="research">Research</button>
         <button class="tab-btn" data-tab="journey">Journey</button>
@@ -658,45 +823,71 @@
   </header>
 
   <main>
-    <section id="home" class="tab-content active"></section>
+    <section id="home" class="tab-content"></section>
     <section id="research" class="tab-content"></section>
     <section id="journey" class="tab-content"></section>
-    <section id="contact" class="tab-content"></section>
+    <section id="blog" class="tab-content">
+      <p class="section-label" style="margin-top: 0;">Blog</p>
+      <a href="https://deepayanbanik.notion.site/Deepayan-Banik-239886db86d1801d93e0e171a5631a4a" target="_blank" rel="noopener" class="blog-link-card">
+        <div>
+          <div class="blog-card-title">Deepayan Banik &nbsp;&middot;&nbsp; Notes &amp; Writing</div>
+          <div class="blog-card-sub">Thoughts on physics, research, and more &nbsp;&middot;&nbsp; Hosted on Notion</div>
+        </div>
+        <span class="blog-card-arrow">&#8599;</span>
+      </a>
+    </section>
   </main>
 
+  <div class="back-to-top-wrap">
+    <button class="back-to-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&#8593; Back to top</button>
+  </div>
+
   <footer>
-    <p>&copy; 2025 Deepayan Banik · University of Toronto </p>
+    <p>&copy; 2025 Deepayan Banik · University of Toronto</p>
   </footer>
 
   <script>
-    // ── Tab switching ──
-    document.querySelectorAll('.tab-btn').forEach(btn => {
+    // ── Nav scrolls to section ──
+    document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
       btn.addEventListener('click', () => {
-        const tab = btn.dataset.tab;
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(tab).classList.add('active');
-        if (tab === 'research') closeDetail();
+        closeDetail();
+        const target = document.getElementById(btn.dataset.tab);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    // ── Research detail pages ──
+    // ── Highlight active nav item based on scroll ──
+    const scrollObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.tab-btn[data-tab]').forEach(b => b.classList.remove('active'));
+          const btn = document.querySelector(`.tab-btn[data-tab="${entry.target.id}"]`);
+          if (btn) btn.classList.add('active');
+        }
+      });
+    }, { threshold: 0.25, rootMargin: '-80px 0px -45% 0px' });
+
+    ['home', 'research', 'journey', 'blog'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) scrollObserver.observe(el);
+    });
+
+    // ── Research detail pages (inline) ──
     function openDetail(area) {
       document.getElementById('research-overview').style.display = 'none';
       document.querySelectorAll('.detail-page').forEach(d => d.classList.remove('active'));
       document.getElementById('detail-' + area).classList.add('active');
-      document.getElementById('header-back-btn').style.display = 'inline-flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
     }
 
     function closeDetail() {
       document.querySelectorAll('.detail-page').forEach(d => d.classList.remove('active'));
-      document.getElementById('research-overview').style.display = 'block';
-      document.getElementById('header-back-btn').style.display = 'none';
+      const overview = document.getElementById('research-overview');
+      if (overview) overview.style.display = 'block';
+      document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // ── Journey click accordion (called after journey section loads) ──
+    // ── Journey click accordion ──
     function initJourney() {
       document.querySelectorAll('.journey-item').forEach(item => {
         const header = item.querySelector('.journey-header');
@@ -709,7 +900,7 @@
       });
     }
 
-    // ── Contact form validation (called after contact section loads) ──
+    // ── Contact form validation ──
     function initContactForm() {
       const form = document.getElementById('contact-form');
       if (!form) return;
@@ -740,14 +931,33 @@
       });
     }
 
+    // ── Scroll reveal for content blocks ──
+    function initReveal() {
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('.journey-item, .pub-list li, .research-area-card').forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (i % 4) * 0.06 + 's';
+        revealObs.observe(el);
+      });
+    }
+
     // ── Load section partials ──
     async function loadSections() {
-      await Promise.all(['home', 'research', 'journey', 'contact'].map(async id => {
+      await Promise.all(['home', 'research', 'journey'].map(async id => {
         const res = await fetch('sections/' + id + '.html');
         document.getElementById(id).innerHTML = await res.text();
       }));
       initJourney();
       initContactForm();
+      initReveal();
     }
 
     loadSections();
