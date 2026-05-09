@@ -19,6 +19,8 @@
       --different2: #e2e8f0;
     }
 
+    html { font-size: 20px; }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -26,7 +28,7 @@
       background: var(--bg);
       color: var(--fg);
       min-height: 100vh;
-      font-size: 18px;
+      font-size: 1rem;
       line-height: 1.6;
     }
 
@@ -40,7 +42,7 @@
     }
 
     .header-inner {
-      max-width: 760px;
+      max-width: 1020px;
       margin: 0 auto;
       padding: 0.85rem 2rem;
       display: flex;
@@ -89,7 +91,7 @@
 
     /* ── MAIN ── */
     main {
-      max-width: 760px;
+      max-width: 1020px;
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -122,6 +124,8 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    #home.tab-content { padding-top: 2rem; }
 
     /* ── HOME ── */
     .card {
@@ -782,7 +786,7 @@
 
     /* ── BACK TO TOP ── */
     .back-to-top-wrap {
-      max-width: 760px;
+      max-width: 1020px;
       margin: 0 auto;
       padding: 2rem 2rem 2.5rem;
       display: flex;
@@ -857,20 +861,19 @@
     });
 
     // ── Highlight active nav item based on scroll ──
-    const scrollObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.tab-btn[data-tab]').forEach(b => b.classList.remove('active'));
-          const btn = document.querySelector(`.tab-btn[data-tab="${entry.target.id}"]`);
-          if (btn) btn.classList.add('active');
-        }
+    function updateActiveTab() {
+      const scrollY = window.scrollY + 120;
+      const ids = ['home', 'research', 'journey', 'blog'];
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      }
+      document.querySelectorAll('.tab-btn[data-tab]').forEach(b => {
+        b.classList.toggle('active', b.dataset.tab === current);
       });
-    }, { threshold: 0.25, rootMargin: '-80px 0px -45% 0px' });
-
-    ['home', 'research', 'journey', 'blog'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) scrollObserver.observe(el);
-    });
+    }
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
 
     // ── Research detail pages (inline) ──
     function openDetail(area) {
