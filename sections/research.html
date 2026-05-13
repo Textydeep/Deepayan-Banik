@@ -3,25 +3,57 @@
 
   <p class="section-label" style="margin-top:0">Research Areas</p>
   <div class="research-areas">
-    <div class="research-area-card" onclick="openDetail('stars')">
-      <img src="Stars.jpeg" alt="Stars research area" style="width: 100%; height: auto;margin-bottom: 0.8rem; border-radius: 2px;" />
-      <h4>Stars</h4>
-      <p>Differential rotation and meridional circulation in stellar interiors are often neglected in evolutionary models that treat stars as rigidly-rotating one dimensional objects. However, in reality they highly three dimensional with complex fluid motion that not only affect the current state of stars but also their past and future. I work on this using theoretical and computational fluid dynamics.</p>
+    <div class="research-area-card" style="--card-color: rgb(148, 82, 22);" onclick="openDetail('stars')">
+      <div class="card-img-wrap">
+        <img src="Stars.jpeg" alt="Stars research area" />
+        <div class="card-caption">Stars</div>
+        <div class="card-hover" style="background: rgba(30, 18, 6, 0.90);">
+          Differential rotation and meridional circulation in stellar interiors are neglected in evolutionary models that treat stars as rigidly-rotating one-dimensional objects. In reality they are highly three-dimensional with complex fluid motion that shapes both the current and future state of a star. I study these flows using reduced-order analytical models and pseudospectral simulations, focusing on how they transport angular momentum and mix chemical species across compositional gradients.
+          <div class="card-hover-pubs">
+            <div class="card-hover-pub">D Banik, K Menou, E H Anders &nbsp;·&nbsp; ApJ &nbsp;·&nbsp; 2025</div>
+            <div class="card-hover-pub">D Banik, K Menou &nbsp;·&nbsp; GAFD &nbsp;·&nbsp; 2024</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="research-area-card" onclick="openDetail('planets')">
-      <img src="Coldeyeballplanet.jpg" alt="Planets research area" style="width: 100%; height: auto;margin-bottom: 0.8rem; border-radius: 2px;" />
-      <h4>Planets</h4>
-      <p>Exoplanetary climate physics is focused on using a variety of tools. I use shallow water models of planetary atmospheres to study variably irradiated synchronous and asynchronous planets.  I also collaborate on using high resolution phase resolved spectroscopy to probe ultra hot Jupiters for magnetic fields.</p>
+    <div class="research-area-card" style="--card-color: rgb(38, 82, 168);" onclick="openDetail('planets')">
+      <div class="card-img-wrap">
+        <img src="Coldeyeballplanet.jpg" alt="Planets research area" />
+        <div class="card-caption">Planets</div>
+        <div class="card-hover" style="background: rgba(6, 14, 28, 0.90);">
+          Exoplanetary climate dynamics is an emerging field. With new observational tools we can now constrain the wind and climate patterns on these worlds. I use shallow water models to study variably irradiated synchronous and asynchronous planets, uncovering novel climate states driven by resonant wave interactions with new observable signatures in phase curves. I also collaborate on probing ultra-hot Jupiter magnetic fields using high-resolution cross-correlation spectroscopy.
+          <div class="card-hover-pubs">
+            <div class="card-hover-pub">D Banik &nbsp;·&nbsp; ApJ &nbsp;·&nbsp; 2025</div>
+            <div class="card-hover-pub">D Banik, V Pustovoit, T D Komacek, M L Bryan &nbsp;·&nbsp; In prep &nbsp;·&nbsp; 2026</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="research-area-card" onclick="openDetail('asteroids')">
-      <img src="Asteroids.jpeg" alt="Asteroids research area" style="width: 100%; height: auto;margin-bottom: 0.8rem; border-radius: 2px;" />
-      <h4>Asteroids</h4>
-      <p>In the past, I have studied the spin and shape evolution of rubble-pile asteroids using discrete and continuum methods for granular flows with focus on top-shaped asteroids like Bennu and Ryugu. Current collaborative work extends into developing a comprehensive asteroid evolution history package for population statistics.</p>
+    <div class="research-area-card" style="--card-color: rgb(98, 88, 72);" onclick="openDetail('asteroids')">
+      <div class="card-img-wrap">
+        <img src="Asteroids.jpeg" alt="Asteroids research area" />
+        <div class="card-caption">Asteroids</div>
+        <div class="card-hover" style="background: rgba(16, 14, 11, 0.90);">
+          I have studied the spin and shape evolution of rubble-pile asteroids like Bennu and Ryugu using both discrete and continuum methods for granular flows. I developed finite-volume codes for non-Newtonian granular rheology to model how surface mass redistribution drives long-term spin evolution of top-shaped bodies. Current collaborative work extends into a comprehensive asteroid evolution history package for population statistics.
+          <div class="card-hover-pubs">
+            <div class="card-hover-pub">D Banik, K Gaurav, I Sharma &nbsp;·&nbsp; Proc. R. Soc. A &nbsp;·&nbsp; 2022</div>
+            <div class="card-hover-pub">K Gaurav, D Banik, I Sharma &nbsp;·&nbsp; JFM &nbsp;·&nbsp; 2021</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="research-area-card" onclick="openDetail('misc')">
-      <img src="Agenticcoding.jpg" alt="Agentic coding, LLMs and others research area" style="width: 100%; height: auto;margin-bottom: 0.8rem; border-radius: 2px;" />
-      <h4>Agentic Coding, LLMs &amp; Others</h4>
-      <p>I explore the intersection of computational physics and machine learning, including using symbolic regression to rediscover physical laws from simulation data, designing LLM evaluation benchmarks in physics, and earlier work on mechanical logic gates using compliant bistable arches.</p>
+    <div class="research-area-card" style="--card-color: rgb(88, 62, 172);" onclick="openDetail('misc')">
+      <div class="card-img-wrap">
+        <img src="Agenticcoding.jpg" alt="Agentic coding, LLMs and others research area" />
+        <div class="card-caption">Agentic Coding, LLMs &amp; Others</div>
+        <div class="card-hover" style="background: rgba(12, 8, 24, 0.90);">
+          I explore the boundary between computational physics and machine learning. Using PySR and Dedalus I demonstrated that symbolic regression can rediscover exact wave dispersion relations from unlabelled simulation data with near-machine precision. I have contributed to LLM evaluation benchmarks in physics including Humanity's Last Exam, and earlier designed mechanical logic gates using compliant bistable arches as a proof of concept for passive MEMS-scale computation.
+          <div class="card-hover-pubs">
+            <div class="card-hover-pub">Several authors incl. D Banik &nbsp;·&nbsp; Nature &nbsp;·&nbsp; 2025</div>
+            <div class="card-hover-pub">D Banik et al. &nbsp;·&nbsp; Mech. Mach. Sci. &nbsp;·&nbsp; 2020</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -47,41 +79,50 @@
       <span class="pub-authors">D Banik (solo author)</span>
       <span class="pub-venue">The Astrophysical Journal · 2025 </span>
     </li>
-    <li>
-      <span class="pub-title"><a href="https://www.nature.com/articles/s41586-025-09962-4" target="_blank">A benchmark of expert-level academic questions to assess AI capabilities (Humanities Last Exam)</a></span>
-      <span class="pub-authors">Several authors including D Banik</span>
-      <span class="pub-venue">Nature · 2025 </span>
-    </li>
-    <li>
-      <span class="pub-title"><a href="https://www.tandfonline.com/doi/pdf/10.1080/03091929.2024.2361013?casa_token=y2Brs0YA8dYAAAAA:p75LP5gndpq1MTKLc4gnOy_OXp9ui7gU57moNsECc--Iis-RA8RL2lkDmKOrvgG8-2_NlmPxRYCiooU" target="_blank">Meridional Circulation Streamlined</a></span>
-      <span class="pub-authors">D Banik, K Menou</span>
-      <span class="pub-venue">Geophysical and Astrophysical Fluid Dynamics · 2024 </span>
-    </li>
-    <li>
-      <span class="pub-title"><a href="https://royalsocietypublishing.org/rspa/article/478/2262/20210972/54554/Regolith-flow-on-top-shaped-asteroidsRegolith-flows" target="_blank">Regolith Flow on Top-Shaped Asteroids</a></span>
-      <span class="pub-authors">D Banik, K Gaurav, I Sharma</span>
-      <span class="pub-venue">Proceedings of the Royal Society A · 2022 </span>
-    </li>
-    <li>
-      <span class="pub-title"><a href="https://www.hou.usra.edu/meetings/lpsc2021/pdf/1122.pdf" target="_blank">Spin Change of Rubble-Piles Due to Mass Shedding Culminating from Surface Motion</a></span>
-      <span class="pub-authors">D Banik, K Gaurav</span>
-      <span class="pub-venue">Lunar and Planetary Science Conference · 2021 </span>
-    </li>
-    <li>
-      <span class="pub-title"><a href="https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/granular-flow-on-a-rotating-and-gravitating-elliptical-body/19108E94A193C71795AC7CCA4B092FFD" target="_blank">Granular Flow on a Rotating and Gravitating Elliptical Body</a></span>
-      <span class="pub-authors">K Gaurav, D Banik, I Sharma</span>
-      <span class="pub-venue">Journal of Fluid Mechanics · 2021 </span>
-    </li>
-    <li>
-      <span class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-981-15-4477-4_61" target="_blank">A Mechanical OR Gate Using Pinned-Pinned Bistable Arches</a></span>
-      <span class="pub-authors">D Banik, S Palathingal, G Ananthasuresh, A Ghosh</span>
-      <span class="pub-venue">Mechanism and Machine Science · 2020 </span>
-    </li>
   </ol>
+
+  <div class="pub-extra" id="pub-extra">
+    <ol class="pub-list pub-list-cont">
+      <li>
+        <span class="pub-title"><a href="https://www.nature.com/articles/s41586-025-09962-4" target="_blank">A benchmark of expert-level academic questions to assess AI capabilities (Humanities Last Exam)</a></span>
+        <span class="pub-authors">Several authors including D Banik</span>
+        <span class="pub-venue">Nature · 2025 </span>
+      </li>
+      <li>
+        <span class="pub-title"><a href="https://www.tandfonline.com/doi/pdf/10.1080/03091929.2024.2361013?casa_token=y2Brs0YA8dYAAAAA:p75LP5gndpq1MTKLc4gnOy_OXp9ui7gU57moNsECc--Iis-RA8RL2lkDmKOrvgG8-2_NlmPxRYCiooU" target="_blank">Meridional Circulation Streamlined</a></span>
+        <span class="pub-authors">D Banik, K Menou</span>
+        <span class="pub-venue">Geophysical and Astrophysical Fluid Dynamics · 2024 </span>
+      </li>
+      <li>
+        <span class="pub-title"><a href="https://royalsocietypublishing.org/rspa/article/478/2262/20210972/54554/Regolith-flow-on-top-shaped-asteroidsRegolith-flows" target="_blank">Regolith Flow on Top-Shaped Asteroids</a></span>
+        <span class="pub-authors">D Banik, K Gaurav, I Sharma</span>
+        <span class="pub-venue">Proceedings of the Royal Society A · 2022 </span>
+      </li>
+      <li>
+        <span class="pub-title"><a href="https://www.hou.usra.edu/meetings/lpsc2021/pdf/1122.pdf" target="_blank">Spin Change of Rubble-Piles Due to Mass Shedding Culminating from Surface Motion</a></span>
+        <span class="pub-authors">D Banik, K Gaurav</span>
+        <span class="pub-venue">Lunar and Planetary Science Conference · 2021 </span>
+      </li>
+      <li>
+        <span class="pub-title"><a href="https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/abs/granular-flow-on-a-rotating-and-gravitating-elliptical-body/19108E94A193C71795AC7CCA4B092FFD" target="_blank">Granular Flow on a Rotating and Gravitating Elliptical Body</a></span>
+        <span class="pub-authors">K Gaurav, D Banik, I Sharma</span>
+        <span class="pub-venue">Journal of Fluid Mechanics · 2021 </span>
+      </li>
+      <li>
+        <span class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-981-15-4477-4_61" target="_blank">A Mechanical OR Gate Using Pinned-Pinned Bistable Arches</a></span>
+        <span class="pub-authors">D Banik, S Palathingal, G Ananthasuresh, A Ghosh</span>
+        <span class="pub-venue">Mechanism and Machine Science · 2020 </span>
+      </li>
+    </ol>
+  </div>
+
+  <button class="pub-toggle-btn" id="pub-toggle-btn" onclick="togglePubs()">
+    Show more &nbsp;&#8595;
+  </button>
 </div>
 
 <!-- ── Detail: Stars ── -->
-<div id="detail-stars" class="detail-page">
+<div id="detail-stars" class="detail-page" style="--detail-color: rgb(148, 82, 22);">
   <div class="detail-inner">
   <button class="research-return-btn" onclick="closeDetail()">
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -89,17 +130,18 @@
   </button>
   <h2 class="detail-title">Stars</h2>
   <p class="detail-subtitle">Stellar interiors · Differential rotation · Meridional circulation</p>
-  <img src="Sun_DR.jpeg" alt="Solar differential rotation" class="detail-hero-img" />
 
   <p class="detail-section-label">Overview</p>
   <p class="detail-body">
     Standard stellar evolution codes, such as MESA, treat stars as rigidly-rotating one-dimensional objects, a simplification that discards the rich three-dimensional fluid dynamics of their interiors. In reality, stars exhibit differential rotation, where different latitudes and depths rotate at different rates, alongside large-scale meridional circulation, a slow overturning flow driven by imbalances between rotation and thermal stratification. These flows mix chemical species across layers that would otherwise remain stratified, alter angular momentum transport, and shape the long-term evolutionary trajectory of the star.
   </p>
+  <img src="Sun_DR.jpeg" alt="Solar differential rotation" class="detail-hero-img" />
 
   <p class="detail-section-label">Rotation Profiles and Angular Momentum Transport</p>
   <p class="detail-body">
-    My first paper in this line of work produced analytical solutions to time-dependent internal rotation profiles in Sun-like stars. These solutions make it possible to probe the feasibility of enhanced angular momentum transport in stellar evolution calculations, offering a tractable benchmark for how transport prescriptions in codes like MESA perform against the full fluid-dynamical picture.
+    My first paper in this line of work produced analytical solutions to time-dependent internal rotation profiles in Sun-like stars. We used the principle of "downward control" from atmospheric physics to recover standard stellar physics results, where radiative diffusion drives the penetration of differential rotation into stratified interiors. These pen-paper solutions make it possible to probe the feasibility of enhanced angular momentum transport in stellar evolution calculations, offering a tractable benchmark for how transport prescriptions in codes like MESA perform against the full fluid-dynamical picture.
   </p>
+  <img src="meridional_circ.png" alt="Meridional circulation in stellar interiors" class="detail-hero-img" />
 
   <p class="detail-section-label">Compositional Gradients and Solar Abundances</p>
   <p class="detail-body">
@@ -137,7 +179,7 @@
 </div>
 
 <!-- ── Detail: Planets ── -->
-<div id="detail-planets" class="detail-page">
+<div id="detail-planets" class="detail-page" style="--detail-color: rgb(38, 82, 168);">
   <div class="detail-inner">
   <button class="research-return-btn" onclick="closeDetail()">
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -154,8 +196,10 @@
 
   <p class="detail-section-label">Time-Dependent Climate Response</p>
   <p class="detail-body">
-    Using shallow water models of planetary atmospheres solved on the pseudospectral code Dedalus, I derived analytical expressions for day-night temperature contrasts as time-dependent responses to variable stellar forcing. This framework reveals novel climate states and modes of variability that are absent from steady-state models. In particular, asynchronously rotating planets exhibit synchronous circulation patterns driven by resonant wave interactions, a phenomenon I termed "planetary rhythms."
+    Using shallow water models of planetary atmospheres solved on the pseudospectral code Dedalus, I derived analytical 
+    expressions for day-night temperature contrasts as time-dependent responses to variable stellar forcing. This framework reveals novel climate states and modes of variability that are absent from steady-state models. In particular, asynchronously rotating planets exhibit synchronous circulation patterns driven by a resonance between the instellation and diurnal periods, leading to permanent hot and cold sides separated by what I call "therminators". This phenomenon has implications for the habitability of these worlds, potentially extending the boundaries of the habitable zone of their star.
   </p>
+  <img src="habitability.png" alt="Variably irradiated planets" class="detail-hero-img" />
 
   <p class="detail-section-label">Observational Signatures</p>
   <p class="detail-body">
@@ -180,9 +224,9 @@
       <span class="pub-venue">The Astrophysical Journal · 2025</span>
     </li>
     <li>
-      <span class="pub-title">IGRINS Observing Program: Deciphering Magnetic Fields of Ultra-Hot Jupiters using High-Resolution Cross-Correlation Spectroscopy</span>
+      <span class="pub-title">Deciphering Magnetic Fields of Ultra-Hot Jupiters using High-Resolution Cross-Correlation Spectroscopy</span>
       <span class="pub-authors">PI: Marta Bryan. Collaborators: Hayley Beltz, Mike Line, Peter Smith</span>
-      <span class="pub-venue">Ongoing.</span>
+      <span class="pub-venue">IGRINS Observing Program; Cycle 2025A.</span>
     </li>
   </ol>
   <button class="research-return-btn bottom" onclick="closeDetail()">
@@ -193,7 +237,7 @@
 </div>
 
 <!-- ── Detail: Asteroids ── -->
-<div id="detail-asteroids" class="detail-page">
+<div id="detail-asteroids" class="detail-page" style="--detail-color: rgb(98, 88, 72);">
   <div class="detail-inner">
   <button class="research-return-btn" onclick="closeDetail()">
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -212,7 +256,7 @@
   <p class="detail-body">
     My M.Tech thesis developed models for the continuum mechanics of regolith flowing on the surface of a spinning, gravitating body. Using finite volume codes I wrote for non-Newtonian granular rheology, I traced how material migrates equatorward under centrifugal forcing, how it reshapes the body's surface, and how the resulting mass shedding feeds back on the spin state of the asteroid. This two-way coupling between surface flow and rotation is what drives the long-term spin evolution of top-shaped bodies. Companion work extended the modeling to idealized ellipsoidal geometries to isolate the role of body shape in controlling flow dynamics.
   </p>
-
+  <img src="top.gif" alt="Top-shaped asteroid spin evolution" class="detail-hero-img" />
   <p class="detail-section-label">Methods</p>
   <p class="detail-body">
     The computational work employed both continuum finite volume approaches treating regolith as a non-Newtonian fluid, and discrete element methods tracking individual grains, enabling cross-validation between the two frameworks. The continuum codes were developed from scratch and run on high-performance computing systems. This work trained a suite of skills in grid-based numerical methods, computational rheology, and small-body geophysics that have since informed my broader approach to computational fluid dynamics.
@@ -244,7 +288,7 @@
 </div>
 
 <!-- ── Detail: Agentic Coding, LLMs & Others ── -->
-<div id="detail-misc" class="detail-page">
+<div id="detail-misc" class="detail-page" style="--detail-color: rgb(88, 62, 172);">
   <div class="detail-inner">
   <button class="research-return-btn" onclick="closeDetail()">
     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>

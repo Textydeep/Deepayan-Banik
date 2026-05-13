@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&family=Lexend+Deca:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #000000;
@@ -42,9 +42,9 @@
     }
 
     .header-inner {
-      max-width: 1020px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.85rem 2rem;
+      padding: 1.3rem 2.5rem;
       display: flex;
       align-items: center;
       gap: 2rem;
@@ -125,19 +125,50 @@
       transform: translateY(0);
     }
 
-    #home.tab-content { padding-top: 2rem; }
+    #home.tab-content {
+      padding-top: 0;
+      padding-bottom: 2rem;
+      min-height: calc(100vh - 5.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1.8rem;
+    }
+
+    .cover-pic-wrap {
+      position: relative;
+      width: calc(100% + 4rem);
+      margin-left: -2rem;
+      line-height: 0;
+    }
+
+    .cover-pic-wrap img { width: 100%; height: auto; display: block; }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.48);
+    }
+
+    /* ── MOODBOARD ── */
+    .moodboard {
+      grid-column: 1 / -1;
+      border: 1px solid var(--border);
+      line-height: 0;
+    }
 
     /* ── HOME ── */
     .card {
       display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 220px 1fr;
+      column-gap: 2.5rem;
+      row-gap: 1.4rem;
       align-items: start;
     }
 
     .avatar {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       object-fit: cover;
       border: 1px solid var(--border);
@@ -186,49 +217,119 @@
     .research-areas {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      gap: 20px;
+      background: transparent;
+      margin-bottom: 3rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 560px) {
       .research-areas { grid-template-columns: 1fr; }
     }
 
     .research-area-card {
-      background: #161616;
-      padding: 1.2rem 1.1rem;
+      background: #000;
       cursor: pointer;
-      transition: background 0.15s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
     }
 
-    .research-area-card:hover { background: #1e2a3a; box-shadow: inset 0 2px 0 var(--different1); }
-    .research-area-card:hover h4 { color: #f1f5f9; }
-    .research-area-card:hover p { color: #94a3b8; }
-    .research-area-card:hover .area-arrow { color: var(--different1); }
+    .research-area-card:hover { box-shadow: 0 0 0 2px var(--card-color, var(--different1)); }
 
-    .research-area-card h4 {
-      font-size: 0.82rem;
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .research-area-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+    .card-caption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 0.75rem 1rem 1.8rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.78) 0%, transparent 100%);
+      font-size: 0.86rem;
       font-weight: 400;
       letter-spacing: 0.05em;
+      color: #f1f5f9;
+      pointer-events: none;
     }
 
-    .research-area-card p {
+    .card-hover {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      padding: 3.2rem 1.8rem 1.8rem;
+      opacity: 0;
+      transition: opacity 0.28s ease;
       font-size: 0.78rem;
       line-height: 1.6;
-      color: var(--muted);
+      color: #ececec;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .area-arrow {
-      font-size: 0.7rem;
-      color: var(--muted);
+    .research-area-card:hover .card-hover { opacity: 1; }
+
+    .card-hover-pubs {
       margin-top: auto;
-      padding-top: 0.6rem;
-      transition: color 0.15s;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
+
+    .card-hover-pub {
+      font-size: 0.60rem;
+      color: rgba(230, 230, 230, 0.75);
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── PUBLICATIONS TOGGLE ── */
+    .pub-extra {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+
+    .pub-extra.open { max-height: 3000px; }
+
+    .pub-list-cont li:first-child { border-top: none; }
+
+    .pub-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--different1);
+      background: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      transition: color 0.15s, border-color 0.2s;
+    }
+
+    .pub-toggle-btn:hover { color: var(--fg); border-color: var(--different1); }
 
     /* ── PUBLICATIONS ── */
     a {
@@ -236,17 +337,17 @@
       text-decoration: none;
     }
 
-    .pub-list { list-style: none; }
+    .pub-list, .detail-pub-list { list-style: none; }
 
-    .pub-list li {
+    .pub-list li, .detail-pub-list li {
       padding: 1rem 0;
       border-bottom: 1px solid var(--border);
       transition: padding-left 0.2s;
     }
 
-    .pub-list li:first-child { border-top: 1px solid var(--border); }
+    .pub-list li:first-child, .detail-pub-list li:first-child { border-top: 1px solid var(--border); }
 
-    .pub-list li:hover {
+    .pub-list li:hover, .detail-pub-list li:hover {
       padding-left: 0.5rem;
       border-left: 2px solid var(--different1);
       margin-left: -2px;
@@ -280,7 +381,11 @@
       animation: fadeIn 0.25s ease;
     }
 
-    .detail-inner { padding: 0; }
+    .detail-inner {
+      padding: 1.8rem 2rem;
+      border: 1px solid var(--detail-color, var(--border));
+      border-radius: 2px;
+    }
 
     .research-return-btn {
       display: inline-flex;
@@ -371,8 +476,8 @@
     }
 
     .detail-body {
-      font-size: 0.9rem;
-      line-height: 1.8;
+      font-size: 0.82rem;
+      line-height: 1.78;
       color: var(--fg);
       margin-bottom: 1rem;
     }
@@ -504,13 +609,14 @@
     }
 
     /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.05em;
-      color: var(--muted);
+    footer { font-size: 0.7rem; letter-spacing: 0.05em; color: var(--muted); }
+
+    .footer-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
       border-top: 1px solid var(--border);
+      text-align: center;
     }
 
     /* ── JOURNEY ── */
@@ -616,7 +722,7 @@
       .pub-authors { font-size: 0.82rem; }
       .pub-venue { font-size: 0.80rem; }
       .detail-title { font-size: 1.3rem; }
-      .detail-body { font-size: 0.95rem; }
+      .detail-body { font-size: 0.88rem; }
       .journey-degree { font-size: 0.94rem; }
       .journey-inst { font-size: 0.80rem; }
       .jd-position { font-size: 0.82rem; }
@@ -847,7 +953,9 @@
   </div>
 
   <footer>
-    <p>&copy; 2025 Deepayan Banik · University of Toronto</p>
+    <div class="footer-inner">
+      <p>&copy; 2025 Deepayan Banik · University of Toronto</p>
+    </div>
   </footer>
 
   <script>
@@ -952,10 +1060,20 @@
       });
     }
 
+    // ── Publications toggle ──
+    function togglePubs() {
+      const extra = document.getElementById('pub-extra');
+      const btn = document.getElementById('pub-toggle-btn');
+      if (!extra || !btn) return;
+      const open = extra.classList.toggle('open');
+      btn.innerHTML = open ? 'Show less &nbsp;&#8593;' : 'Show more &nbsp;&#8595;';
+    }
+
     // ── Load section partials ──
     async function loadSections() {
+      const v = Date.now();
       await Promise.all(['home', 'research', 'journey'].map(async id => {
-        const res = await fetch('sections/' + id + '.html');
+        const res = await fetch('sections/' + id + '.html?v=' + v);
         document.getElementById(id).innerHTML = await res.text();
       }));
       initJourney();
